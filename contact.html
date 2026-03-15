@@ -4,155 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>161273 - Hamzeh Abdel Wahhab | Contact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:      #050a0f;
-      --surface: #0b1520;
-      --border:  #112233;
-      --cyan:    #00e5ff;
-      --green:   #39ff14;
-      --red:     #ff4757;
-      --text:    #c8d8e8;
-      --muted:   #4a6a8a;
-      --mono:    'Share Tech Mono', monospace;
-      --sans:    'Syne', sans-serif;
+      --navy:       #0a0f1e;
+      --navy-mid:   #111827;
+      --navy-light: #1a2540;
+      --border:     #1e2d4a;
+      --gold:       #c9a84c;
+      --gold-light: #e8c97a;
+      --red:        #e05555;
+      --green-ok:   #4caf7d;
+      --white:      #f4f6f9;
+      --text:       #b8c5d6;
+      --muted:      #5a7090;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'Source Sans 3', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg); color: var(--text);
-      font-family: var(--sans); min-height: 100vh; overflow-x: hidden;
-    }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px; pointer-events: none; z-index: 0;
-    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--navy); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; min-height: 100vh; }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 3rem;
-      background: rgba(5,10,15,0.9); backdrop-filter: blur(12px);
+      padding: 0 4rem; height: 70px;
+      background: rgba(10,15,30,0.97);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-family: var(--mono); color: var(--cyan); font-size: 1rem; letter-spacing: 2px; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-brand { font-family: var(--serif); font-size: 1.1rem; color: var(--white); letter-spacing: 1px; }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
-      font-family: var(--mono); color: var(--muted);
-      text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.2s;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      position: relative; padding-bottom: 4px; transition: color 0.2s;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
-    .nav-links a.active::before { content: '> '; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
     /* PAGE HEADER */
     .page-header {
-      position: relative; z-index: 1;
-      padding: 5rem 3rem 3rem; max-width: 1100px; margin: 0 auto;
+      max-width: 1140px; margin: 0 auto; padding: 5rem 4rem 3rem;
     }
-    .page-tag {
-      font-family: var(--mono); font-size: 0.8rem; color: var(--green);
-      letter-spacing: 3px; margin-bottom: 1rem;
-      opacity: 0; animation: fadeUp 0.5s 0.1s forwards;
+    .page-eyebrow {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
     }
+    .page-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+    .page-eyebrow span { font-size: 0.78rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
     .page-header h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff;
-      opacity: 0; animation: fadeUp 0.5s 0.2s forwards;
+      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; color: var(--white);
+      opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
     }
-    .page-header h1 span { color: var(--cyan); }
     .page-header p {
-      margin-top: 0.8rem; font-family: var(--mono); font-size: 0.9rem; color: var(--muted);
-      opacity: 0; animation: fadeUp 0.5s 0.3s forwards;
+      margin-top: 0.8rem; font-size: 0.95rem; color: var(--muted);
+      opacity: 0; animation: fadeUp 0.6s 0.3s forwards;
     }
 
-    /* FORM CONTAINER */
-    .form-container {
-      position: relative; z-index: 1;
-      max-width: 720px; margin: 0 auto 5rem; padding: 0 3rem;
+    /* FORM */
+    .form-wrap {
+      max-width: 680px; margin: 0 auto 6rem; padding: 0 4rem;
       opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
     }
-
     .form-card {
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 2.5rem; position: relative;
-    }
-    .form-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--green));
+      background: var(--navy-mid); border: 1px solid var(--border);
+      border-top: 2px solid var(--gold); padding: 2.5rem 2.8rem;
     }
 
     .form-row { margin-bottom: 1.6rem; }
     label {
-      display: block; font-family: var(--mono); font-size: 0.75rem;
-      letter-spacing: 2px; color: var(--cyan); margin-bottom: 0.5rem; text-transform: uppercase;
+      display: block; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text); margin-bottom: 0.5rem;
     }
-    label::before { content: '> '; color: var(--green); }
 
     input, select, textarea {
-      width: 100%; background: var(--bg); border: 1px solid var(--border);
-      color: var(--text); font-family: var(--mono); font-size: 0.9rem;
+      width: 100%;
+      background: var(--navy); border: 1px solid var(--border);
+      color: var(--white); font-family: var(--sans); font-size: 0.92rem; font-weight: 300;
       padding: 0.75rem 1rem; outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
-      appearance: none; -webkit-appearance: none;
+      appearance: none; -webkit-appearance: none; border-radius: 0;
     }
     input:focus, select:focus, textarea:focus {
-      border-color: var(--cyan);
-      box-shadow: 0 0 0 2px rgba(0,229,255,0.1);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.08);
     }
     input::placeholder, textarea::placeholder { color: var(--muted); }
     textarea { resize: vertical; min-height: 130px; }
-
     select { cursor: pointer; }
-    select option { background: var(--surface); }
+    select option { background: var(--navy-mid); }
 
-    /* Error state */
     input.error, select.error, textarea.error {
       border-color: var(--red);
-      box-shadow: 0 0 0 2px rgba(255,71,87,0.15);
+      box-shadow: 0 0 0 3px rgba(224,85,85,0.1);
     }
-    .error-msg {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--red);
-      margin-top: 0.4rem; display: none;
-    }
+    .error-msg { display: none; font-size: 0.78rem; color: var(--red); margin-top: 0.4rem; }
     .error-msg.visible { display: block; }
 
-    /* Submit button */
     .btn-submit {
       width: 100%; padding: 0.9rem;
-      background: transparent; border: 1px solid var(--cyan);
-      color: var(--cyan); font-family: var(--mono); font-size: 0.9rem;
-      letter-spacing: 2px; cursor: pointer; text-transform: uppercase;
-      transition: background 0.2s, color 0.2s, transform 0.1s;
-      margin-top: 0.5rem;
+      background: var(--gold); border: none; color: var(--navy);
+      font-family: var(--sans); font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+      transition: background 0.2s, transform 0.1s; margin-top: 0.5rem;
     }
-    .btn-submit:hover { background: var(--cyan); color: var(--bg); }
+    .btn-submit:hover { background: var(--gold-light); }
     .btn-submit:active { transform: scale(0.99); }
 
-    /* Success banner */
     .success-banner {
       display: none; margin-top: 1.5rem;
-      background: rgba(57,255,20,0.08); border: 1px solid var(--green);
-      padding: 1rem 1.2rem; font-family: var(--mono); font-size: 0.85rem; color: var(--green);
+      background: rgba(76,175,125,0.08); border: 1px solid rgba(76,175,125,0.3);
+      padding: 1rem 1.2rem; font-size: 0.88rem; color: var(--green-ok);
     }
     .success-banner.visible { display: block; }
 
+    /* FOOTER */
     footer {
-      position: relative; z-index: 1;
-      text-align: center; padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding: 2rem 4rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
+    .footer-name { font-family: var(--serif); font-size: 1rem; color: var(--white); }
+    .footer-right { font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; }
 
     @media (max-width: 700px) {
-      nav { padding: 1rem; }
-      .page-header, .form-container { padding-left: 1.5rem; padding-right: 1.5rem; }
+      nav { padding: 0 1.5rem; }
+      .page-header, .form-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .form-card { padding: 1.8rem 1.5rem; }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -160,20 +150,20 @@
 <body>
 
   <nav>
-    <span class="nav-logo">&lt;PORTFOLIO /&gt;</span>
+    <div class="nav-brand">Hamzeh <span>Abdel Wahhab</span></div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html" class="active">Contact Me</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 
   <div class="page-header">
-    <p class="page-tag">// GET IN TOUCH</p>
-    <h1>Contact <span>Me</span></h1>
+    <div class="page-eyebrow"><span>Get In Touch</span></div>
+    <h1>Contact Me</h1>
     <p>Fill out the form below and I'll get back to you as soon as possible.</p>
   </div>
 
-  <div class="form-container">
+  <div class="form-wrap">
     <div class="form-card">
 
       <div class="form-row">
@@ -191,7 +181,7 @@
       <div class="form-row">
         <label for="country">Country</label>
         <select id="country">
-          <option value="">-- Select your country --</option>
+          <option value="">— Select your country —</option>
           <option>Jordan</option>
           <option>Saudi Arabia</option>
           <option>United Arab Emirates</option>
@@ -204,15 +194,9 @@
           <option>Iraq</option>
           <option>Syria</option>
           <option>Lebanon</option>
-          <option>Yemen</option>
-          <option>Libya</option>
-          <option>Tunisia</option>
-          <option>Morocco</option>
-          <option>Algeria</option>
           <option>United States</option>
           <option>United Kingdom</option>
           <option>Germany</option>
-          <option>France</option>
           <option>Canada</option>
           <option>Australia</option>
           <option>Other</option>
@@ -226,24 +210,23 @@
         <p class="error-msg" id="err-comments">⚠ Comments field cannot be empty.</p>
       </div>
 
-      <button class="btn-submit" onclick="submitForm()">[ SEND MESSAGE ]</button>
+      <button class="btn-submit" onclick="submitForm()">Send Message</button>
 
       <div class="success-banner" id="success-msg">
-        ✔ Message sent successfully! Thank you for reaching out, I'll get back to you soon.
+        ✔ Message sent successfully! Thank you for reaching out — I'll get back to you soon.
       </div>
 
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Hamzeh Abdel Wahhab &mdash; SID: 161273 &mdash; Jordan University of Science and Technology
+    <div class="footer-name">Hamzeh Abdel Wahhab</div>
+    <div class="footer-right">SID: 161273 &nbsp;·&nbsp; Jordan University of Science and Technology &nbsp;·&nbsp; 2025</div>
   </footer>
 
   <script>
     function submitForm() {
-      let valid = true;
-
-      // Helper: clear all errors first
+      // Clear previous errors
       document.querySelectorAll('input, select, textarea').forEach(el => el.classList.remove('error'));
       document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('visible'));
       document.getElementById('success-msg').classList.remove('visible');
@@ -252,30 +235,24 @@
       const email    = document.getElementById('email');
       const country  = document.getElementById('country');
       const comments = document.getElementById('comments');
+      let valid = true;
 
-      // Validate Full Name
       if (fullname.value.trim() === '') {
         fullname.classList.add('error');
         document.getElementById('err-fullname').classList.add('visible');
         valid = false;
       }
-
-      // Validate Email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.value.trim())) {
         email.classList.add('error');
         document.getElementById('err-email').classList.add('visible');
         valid = false;
       }
-
-      // Validate Country
       if (country.value === '') {
         country.classList.add('error');
         document.getElementById('err-country').classList.add('visible');
         valid = false;
       }
-
-      // Validate Comments
       if (comments.value.trim() === '') {
         comments.classList.add('error');
         document.getElementById('err-comments').classList.add('visible');
@@ -285,11 +262,7 @@
       if (valid) {
         alert('✔ Form submitted successfully! Thank you, ' + fullname.value.trim() + '!');
         document.getElementById('success-msg').classList.add('visible');
-        // Clear form
-        fullname.value = '';
-        email.value = '';
-        country.value = '';
-        comments.value = '';
+        fullname.value = ''; email.value = ''; country.value = ''; comments.value = '';
       }
     }
   </script>
